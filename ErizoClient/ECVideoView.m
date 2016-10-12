@@ -12,6 +12,10 @@
 
 @implementation ECVideoView
 
+- (BOOL)isLandscape {
+    return (self.aspectRatio > 1.0);
+}
+
 // The frame to be displayed.
 - (void)renderFrame:(RTCI420Frame*)frame {
     [super renderFrame:frame];
@@ -26,8 +30,11 @@
 }
 
 - (void)updateContentBounds {
-    // This is the same as aspect ratio fit
-    if (self.frame.size.height * self.aspectRatio > self.frame.size.width) {
+    BOOL isWidthOutOfBounds = self.frame.size.height * self.aspectRatio > self.frame.size.width;
+    
+    // How fit or fill behaves depends on the players ratio
+    if ((isWidthOutOfBounds && self.aspectType == ECVideoViewAspectTypeFit) ||
+        (!isWidthOutOfBounds && self.aspectType == ECVideoViewAspectTypeFill)) {
         self.bounds = CGRectMake(self.bounds.origin.x,
                                  self.bounds.origin.y,
                                  self.frame.size.width,

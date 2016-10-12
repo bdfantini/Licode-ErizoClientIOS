@@ -8,10 +8,17 @@
 
 #import "RTCEAGLVideoView.h"
 
+typedef NS_ENUM(NSUInteger, ECVideoViewAspectType) {
+    ECVideoViewAspectTypeFit,
+    ECVideoViewAspectTypeFill
+};
+
 @interface ECVideoView : RTCEAGLVideoView
 
 @property (nonatomic) CGFloat aspectRatio;
+@property (nonatomic) ECVideoViewAspectType aspectType;
 
+- (BOOL)isLandscape;
 - (void)updateContentBounds;
 
 @end
