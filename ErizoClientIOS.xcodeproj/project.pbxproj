@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		20015E9A1DAEAC8600D7EA48 /* ECVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20015E991DAEAC8600D7EA48 /* ECVideoView.m */; };
 		785C801B1B9DE13300DD721F /* ECPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785C80191B9DE13300DD721F /* ECPlayerView.m */; };
 		7863E32D1B7C167500A34C50 /* libErizoClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7863E3211B7C167500A34C50 /* libErizoClient.a */; };
 		7875E15E1B7ED6CE00BEE085 /* ErizoClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875E15C1B7ED6CE00BEE085 /* ErizoClient.m */; };
@@ -66,6 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		20015E981DAEAC8600D7EA48 /* ECVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECVideoView.h; sourceTree = "<group>"; };
+		20015E991DAEAC8600D7EA48 /* ECVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECVideoView.m; sourceTree = "<group>"; };
 		69631C5AA1ADB7F2C2E4888F /* libPods-ErizoClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ErizoClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7814A0F51B83F6E600C18A9E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		785C80191B9DE13300DD721F /* ECPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPlayerView.m; sourceTree = "<group>"; };
@@ -158,6 +161,8 @@
 				78D593691B7C17FF00EDF432 /* ECStream.m */,
 				78D5936B1B7C17FF00EDF432 /* ECRoom.h */,
 				78D5936A1B7C17FF00EDF432 /* ECRoom.m */,
+				20015E981DAEAC8600D7EA48 /* ECVideoView.h */,
+				20015E991DAEAC8600D7EA48 /* ECVideoView.m */,
 			);
 			path = ErizoClient;
 			sourceTree = "<group>";
@@ -292,11 +297,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7863E3371B7C167500A34C50 /* Build configuration list for PBXNativeTarget "ErizoClient" */;
 			buildPhases = (
-				9BDAA9D31C9628C7C7F3C596 /* Check Pods Manifest.lock */,
+				9BDAA9D31C9628C7C7F3C596 /* [CP] Check Pods Manifest.lock */,
 				7863E31D1B7C167400A34C50 /* Sources */,
 				7863E31E1B7C167400A34C50 /* Frameworks */,
 				7863E31F1B7C167400A34C50 /* CopyFiles */,
-				93A3E8E095EB8778BDE0AD8B /* Copy Pods Resources */,
+				93A3E8E095EB8778BDE0AD8B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -400,14 +405,14 @@
 			shellPath = /bin/sh;
 			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"Alvaro Gil (@zevarito)\";\ncompanyID=\"@zevarito\";\ncompanyURL=\"https://github.com/zevarito\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/help\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME} Developers Documentation\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${PROJECT_DIR}/docs/dev\" \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--search-undocumented-doc \\\n\"${PROJECT_DIR}/ErizoClient\"\n";
 		};
-		93A3E8E095EB8778BDE0AD8B /* Copy Pods Resources */ = {
+		93A3E8E095EB8778BDE0AD8B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,19 +420,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ErizoClient/Pods-ErizoClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9BDAA9D31C9628C7C7F3C596 /* Check Pods Manifest.lock */ = {
+		9BDAA9D31C9628C7C7F3C596 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -438,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				787BB2281B7EB1E100237A36 /* SRWebSocket.m in Sources */,
+				20015E9A1DAEAC8600D7EA48 /* ECVideoView.m in Sources */,
 				787BB2261B7EB1E100237A36 /* SocketIOTransportWebsocket.m in Sources */,
 				787BB2231B7EB1E100237A36 /* SocketIO.m in Sources */,
 				787BB2251B7EB1E100237A36 /* SocketIOPacket.m in Sources */,

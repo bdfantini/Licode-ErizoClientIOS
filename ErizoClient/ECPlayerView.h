@@ -11,6 +11,8 @@
 #import "ECStream.h"
 #import "RTCEAGLVideoView.h"
 
+@class ECVideoView;
+
 @interface ECPlayerView : UIView <RTCEAGLVideoViewDelegate>
 
 ///-----------------------------------
@@ -60,6 +62,6 @@
 @property (strong, nonatomic, readonly) ECStream *stream;
 
 /// View where the video gets rendered
-@property (strong, nonatomic, readonly) RTCEAGLVideoView *videoView;
+@property (strong, nonatomic, readonly) ECVideoView *videoView;
 
 @end

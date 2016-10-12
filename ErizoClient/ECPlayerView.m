@@ -9,6 +9,7 @@
 #import "ECPlayerView.h"
 #import "RTCMediaStream.h"
 #import "RTCVideoTrack.h"
+#import "ECVideoView.h"
 
 @implementation ECPlayerView {
     
@@ -16,10 +17,9 @@ CGRect viewFrame;
 
 }
 
-
 - (instancetype)init {
     if (self = [super init]) {
-        _videoView = [[RTCEAGLVideoView alloc] initWithFrame:self.frame];
+        _videoView = [[ECVideoView alloc] initWithFrame:self.frame];
         [self addSubview:_videoView];
     }
     return self;
@@ -28,7 +28,7 @@ CGRect viewFrame;
 - (instancetype)initWithFrame:(CGRect)frame {
     viewFrame = frame;
     if (self = [super initWithFrame:frame]) {
-        _videoView = [[RTCEAGLVideoView alloc] initWithFrame:frame];
+        _videoView = [[ECVideoView alloc] initWithFrame:frame];
         [self addSubview:_videoView];
     }
     return self;
